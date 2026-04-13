@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placit Possa Trophy 2026 - Beach Cricket Tournament</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a3d5c 0%, #1e5a8e 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0a3d5c 0%, #1e5a8e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 5px solid #ff6b35;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-top: 5px;
+        }
+
+        main {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            color: #0a3d5c;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ff6b35;
+        }
+
+        /* Image Grid Sections */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .image-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-item .caption {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #0a3d5c;
+        }
+
+        /* Prize Section */
+        .prizes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .prize-card {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .prize-card:hover {
+            transform: scale(1.05);
+        }
+
+        .prize-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .prize-card .amount {
+            font-size: 2em;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+
+        /* Awards Section */
+        .awards-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .award-item {
+            background: #f0f4f8;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b35;
+            font-weight: 600;
+            color: #0a3d5c;
+            text-align: center;
+        }
+
+        /* Tournament Details */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .detail-card {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fc 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 4px solid #0a3d5c;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-card .label {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .detail-card .value {
+            color: #0a3d5c;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #0a3d5c 0%, #1e5a8e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .contact-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-item .name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.05em;
+        }
+
+        .contact-item .phone {
+            font-size: 1.3em;
+            letter-spacing: 2px;
+        }
+
+        /* Special Feature */
+        .feature-section {
+            background: linear-gradient(135deg, #ffe8b6 0%, #fff4d9 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border: 3px solid #ff6b35;
+            margin-bottom: 30px;
+        }
+
+        .feature-section h3 {
+            color: #ff6b35;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .feature-section p {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        /* Important Info Box */
+        .info-box {
+            background: #fff3cd;
+            border: 3px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .info-box p {
+            color: #856404;
+            font-weight: 600;
+            margin: 8px 0;
+        }
+
+        /* Registration Link */
+        .registration-cta {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .registration-cta p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #ff6b35;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Instagram Section */
+        .social-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .social-section p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .instagram-handle {
+            color: #ff6b35;
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+
+        footer {
+            background: #0a3d5c;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 5px solid #ff6b35;
+        }
+
+        footer p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        /* Rules Section Styles */
+        .rules-intro {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe8b6 100%);
+            border: 3px solid #ff6b35;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .rules-intro p {
+            color: #333;
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .rule-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #ff6b35;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .rule-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+        }
+
+        .rule-item strong {
+            color: #0a3d5c;
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .rule-item p {
+            color: #555;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .consent-box {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fc 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border: 3px solid #0a3d5c;
+        }
+
+        .consent-box h3 {
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            header {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                min-height: auto;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            header img {
+                height: 160px !important;
+            }
+
+            header p:first-of-type {
+                font-size: 1.2em !important;
+            }
+
+            header p:last-of-type {
+                font-size: 1em !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                min-height: auto;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+                margin: 5px 0 !important;
+            }
+
+            header img {
+                height: 140px !important;
+            }
+
+            header p:first-of-type {
+                font-size: 1.1em !important;
+                margin-bottom: 5px !important;
+            }
+
+            header p:last-of-type {
+                font-size: 0.95em !important;
+                margin-top: 5px !important;
+            }
+
+            .image-grid,
+            .prizes-container,
+            .contact-grid,
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 20px 15px;
+            }
+
+            .prize-card {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; align-items: center; justify-items: center; gap: 20px; min-height: 220px;">
+                <!-- Left Logo: Placit Possa Trophy -->
+                <div style="text-align: center;">
+                    <img src="images/logo.png" alt="Placit Possa Trophy" style="height: 220px; width: auto; background: transparent; padding: 10px; border-radius: 10px;">
+                </div>
+
+                <!-- Center Text -->
+                <div style="text-align: center;">
+                    <p style="color: white; font-size: 1.3em; font-weight: 600; margin-bottom: 10px;">Brilliant Boys Presents</p>
+                    <h1 style="margin: 10px 0; font-size: 2.8em; line-height: 1.2;">🏏 Placit Possa Trophy 2026</h1>
+                    <p style="color: white; font-size: 1.1em; font-weight: 500; margin-top: 10px;">Rainy Season Beach Cricket Tournament - Season 32</p>
+                </div>
+
+                <!-- Right Logo: Brilliant Boys Club -->
+                <div style="text-align: center;">
+                    <img src="images/image1.png" alt="Brilliant Boys Club" style="height: 220px; width: auto; background: white; padding: 10px; border-radius: 10px;">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Tournament Details Section -->
+            <div class="section">
+                <h2>Tournament Details</h2>
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <img src="images/tournament-details.jpeg" alt="Tournament Details" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                </div>
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <div class="label">Total Teams</div>
+                        <div class="value">24</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="label">Overs</div>
+                        <div class="value">5 Overs</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="label">Entry Fee</div>
+                        <div class="value">Rs. 7,000</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="label">Advance Payment</div>
+                        <div class="value">Rs. 1,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Venue Section -->
+            <div class="section">
+                <h2>Tournament Venue - Uttan Beach</h2>
+                <div style="text-align: center;">
+                    <img src="images/venue-photo.jpg" alt="Uttan Beach - Venue" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                </div>
+            </div>
+
+            <!-- Tournament Dates -->
+            <div class="section">
+                <h2>Tournament Dates</h2>
+                <div style="text-align: center;">
+                    <div style="background: linear-gradient(135deg, #0a3d5c 0%, #1e5a8e 100%); color: white; padding: 40px; border-radius: 10px; font-size: 1.5em; font-weight: 700;">
+                        7, 8, 9, 10 June 2026
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prize Money Section -->
+            <div class="section">
+                <h2>Prize Money</h2>
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <img src="images/prize-display.jpg" alt="Trophy Display" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                </div>
+                <div class="prizes-container">
+                    <div class="prize-card">
+                        <div style="font-size: 2em; margin-bottom: 10px;">🥇</div>
+                        <h3>First Prize</h3>
+                        <div class="amount">Rs. 75,000</div>
+                        <p style="font-weight: 600; font-size: 1.1em;">+ Trophy</p>
+                    </div>
+                    <div class="prize-card">
+                        <div style="font-size: 2em; margin-bottom: 10px;">🥈</div>
+                        <h3>Second Prize</h3>
+                        <div class="amount">Rs. 35,000</div>
+                        <p style="font-weight: 600; font-size: 1.1em;">+ Trophy</p>
+                    </div>
+                    <div class="prize-card">
+                        <div style="font-size: 2em; margin-bottom: 10px;">🥉</div>
+                        <h3>Third Prize</h3>
+                        <div class="amount">Rs. 10,000</div>
+                        <p style="font-weight: 600; font-size: 1.1em;">+ Trophy</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Awards Section -->
+            <div class="section">
+                <h2>Special Awards</h2>
+                <div class="awards-list">
+                    <div class="award-item">🌟 Young Emerging Player</div>
+                    <div class="award-item">⭐ Best Batsman</div>
+                    <div class="award-item">⭐ Best Bowler</div>
+                    <div class="award-item">⭐ Man of the Match (Every Match)</div>
+                    <div class="award-item">⭐ Man of The Series</div>
+                    <div class="award-item">⭐ Catch of the Tournament</div>
+                    <div class="award-item">⭐ Most Number of Sixes</div>
+                    <div class="award-item">⚡ Electric Striker of the Tournament</div>
+                    <div class="award-item">📊 Most Economical Bowler</div>
+                </div>
+            </div>
+
+            <!-- Special Feature -->
+            <div class="feature-section">
+                <h3>🌟 Special Feature This Year!</h3>
+                <p style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #ff6b35; margin-bottom: 15px; font-weight: 600;">
+                    <strong>जर सामना बरोबरीत सुटला, तर सुपर ओव्हर खेळवला जाईल।</strong><br>
+                    (If a match ends in a tie, a super over will be played)
+                </p>
+                <p>या वर्षी खास उत्तन बंदरांवर प्रथमच 3 सुपर ओव्हर सामने!</p>
+                <p style="margin-top: 15px; font-size: 1em;">
+                    टॉप ३ संघ ३ सुपर ओव्हर सामने खेळतील, त्यातून १ संघ अंतिम फेरीसाठी पात्र ठरेल आणि उर्वरित २ संघ नियमित उपांत्य फेरीचा सामना खेळतील.
+                </p>
+            </div>
+
+            <!-- Important Info -->
+            <div class="info-box">
+                <p>📌 Advance Rs. 1,000 compulsory to confirm entry.</p>
+                <p>📌 Limited to 5 Overs Cricket Format</p>
+                <p>📌 Venue: Uttan Beach</p>
+            </div>
+
+            <!-- Registration CTA -->
+            <div class="registration-cta">
+                <p><strong>Tournament Details</strong></p>
+                <p style="font-size: 1.05em;">Get live tournament updates and view the latest scores!</p>
+                <a href="https://chshare.link/tournament/rhirSv" class="cta-button" target="_blank">📊 View Tournament Score</a>
+            </div>
+
+            <!-- Live Score & Updates QR Code Section -->
+            <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffe8b6 100%); padding: 30px; border-radius: 10px; border: 3px solid #ff6b35; margin-bottom: 30px; text-align: center;">
+                <h3 style="color: #ff6b35; margin-bottom: 20px; font-size: 1.5em;">📱 Live Score & Tournament Updates</h3>
+                <p style="color: #333; font-size: 1.05em; margin-bottom: 20px; font-weight: 600;">Scan the QR Code below for live score updates and tournament details</p>
+                <div style="max-width: 300px; margin: 0 auto;">
+                    <img src="images/qr-code.jpeg" alt="Live Score QR Code" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h3>📞 Contact Information</h3>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="name">Rowin</div>
+                        <div class="phone">8898223990</div>
+                        <div style="font-size: 0.9em; color: #ffd700; margin-top: 8px; font-weight: 600;">💳 Gpay</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="name">Brijal</div>
+                        <div class="phone">9152303111</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="name">Gleson</div>
+                        <div class="phone">8655861163</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="name">Glaston</div>
+                        <div class="phone">9821709825</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="social-section">
+                <p>📸 <strong>Follow us for Latest Updates, Photos, Videos & Reels</strong></p>
+                <p class="instagram-handle">@DEVTALAO_BOYS</p>
+                <div style="margin: 20px 0; text-align: center;">
+                    <img src="images/image39.jpeg" alt="Instagram QR Code" style="max-width: 300px; height: auto; border-radius: 10px;">
+                </div>
+                <p style="font-size: 0.95em; color: #999; margin-top: 15px;">
+                    Scan the QR code or follow @DEVTALAO_BOYS for tournament news, match updates, and behind-the-scenes content
+                </p>
+            </div>
+
+            <!-- Tournament Updates Link -->
+            <div style="background: #f0f4f8; padding: 25px; border-radius: 10px; text-align: center; margin-bottom: 30px;">
+                <p style="color: #666; margin-bottom: 15px;">
+                    <strong>For Tournament Updates and Live Score</strong>
+                </p>
+                <a href="https://chshare.link/tournament/rhirSv" style="
+                    display: inline-block;
+                    padding: 12px 30px;
+                    background: #0a3d5c;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    transition: background 0.3s;
+                " target="_blank" onmouseover="this.style.background='#1e5a8e'" onmouseout="this.style.background='#0a3d5c'">
+                    🔗 Click here or Scan QR Code
+                </a>
+            </div>
+
+            <!-- Tournament Rules Section -->
+            <div class="section">
+                <h2>स्पर्धेचे नियम (Tournament Rules)</h2>
+
+                <div class="rules-intro">
+                    <p><strong>कृपया सर्व नियम व अटी लक्षात घ्या आणि सहमती व्यक्त करा।</strong></p>
+                    <p><em>(Please carefully read all rules and conditions below and give your consent. Failure to comply with these rules may result in disqualification.)</em></p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    <div class="rule-item">
+                        <strong>१. Team Participation</strong>
+                        <p>२४ संघांना संधी देण्यात येईल। (24 teams will be given the opportunity to participate)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>२. Tie-Breaking Rule</strong>
+                        <p>जर सामना बरोबरीत सुटला, तर सुपर ओव्हर खेळवला जाईल। (If a match ends in a tie, a super over will be played)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>३. Punctuality & Match Timing</strong>
+                        <p>सर्व संघांनी वेळेवर हजर रहावे. उशिरा येणाऱ्या संघास कमी षटकांचा सामना खेळावा लागेल. त्याबद्दल निर्णय कमिटी घेईल. स्पर्धेत बदल करणे कमिटीवर अवलंबून आहे। (All teams must arrive on time. Late teams will play reduced overs. Committee will make final decisions on match changes)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>४. Field Placement</strong>
+                        <p>२ षटके सर्कलमध्ये खेळविण्यात येतील। (2 overs will be played in the circle)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>५. Match Duration</strong>
+                        <p>५ षटकांसाठी २५ मिनिटांचा अवधी दिला जाईल. जर ४ ओव्हर २० मिनिटांच्या आत पूर्ण झाली नाही तर शेवटच्या ओव्हरमध्ये एक फिल्डर एक्स्ट्रा सर्कलच्या आत ठेवावा लागेल। (5 overs will be given 25 minutes duration. If 4 overs are not completed within 20 minutes, one fielder must be placed inside the circle in the last over)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>६. Weather & Ground Conditions</strong>
+                        <p>समुद्राचे पाणी अथवा इतर कारणामुळे सामना रद्द करणे हे पंच आणि कमिटीवर अवलंबून असेल। (Cancellation of matches due to sea water or other reasons will be decided by the umpire and committee)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>७. Coin Toss Decision</strong>
+                        <p>नाणेफेकीसाठी येताना आपला निर्णय अगोदर ठरवून येणे. अन्यथा २ धावांची पेनल्टी लागेल। (Decide your choice before the coin toss. Failure to do so will result in 2-run penalty)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>८. Original Team Players</strong>
+                        <p>ओरिजिनल संघ - खेळाडू ज्या संघाचा असेल त्यास त्याच संघात खेळविले जाईल। (Players must play for their original team)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>९. Batsman Dismissal</strong>
+                        <p>फलंदाज झेलबाद झाल्यानंतर नवीन फलंदाज स्ट्राइकवर असेल। (New batsman will be on strike after a batsman gets out)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>१०. Decision Review</strong>
+                        <p>अटीतटीच्या वेळी निर्णय चुकिचा असल्यास पंचांना तो दुरुस्त करण्यासाठी मांगे (Reverse Decision) घेता येईल। (Umpire can reverse decisions if found incorrect during critical moments)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>११. Field Entry/Exit Rules</strong>
+                        <p>सामना चालू असताना पंचाच्या संमतीशिवाय कुठल्याही खेळाडूने मैदानात उतरू नये किंवा बाहेर जाऊ नये. अन्यथा समोरच्या संघाला २ धावा बोनस देण्यात येतील। (No player can enter or leave the field without umpire permission. Violation results in 2-run bonus for opposing team)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>१२. Behavioral Conduct & Ban</strong>
+                        <p>एखाद्या खेळाडू किंवा संघाने मोठा वाद घातला तर त्या खेळाडू किंवा संघाला या स्पर्धेमध्ये ५ वर्ष खेळण्यास बंदी असेल। (Any serious dispute will result in a 5-year ban from this tournament)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>१३. Uniform Requirements</strong>
+                        <p>सामान्यांमध्ये खेळण्यास एकसमान टीशर्ट घालणे आवश्यक आहे. अन्यथा २ धावांची पेनल्टी लागेल। (Uniform T-shirts are mandatory. Non-compliance results in 2-run penalty)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>१४. No Ball Rule</strong>
+                        <p>नो बॉल नंतर फ्री हिट असेल। (Free hit will be given after a no ball)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>१५. Intoxication Policy</strong>
+                        <p>मद्यपान करून खेळाडुला खेळण्यास मनाई आहे। (Playing under the influence of alcohol is strictly prohibited)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>१६. Injury Liability</strong>
+                        <p>खेळत असताना एखाद्या खेळाडुला दुखापत (Accident) झाल्यास कमिटी जबाबदार नसेल। (Committee is not responsible for any injuries during the game)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>१७. Safety Equipment</strong>
+                        <p>टी-शर्ट आणि सेफ्टी गार्ड मैदानात प्रवेश करण्यापूर्वीच घालावे; मैदानामध्ये बदल केल्यास २ धावांची दंडात्मक शिक्षा दिली जाईल। (T-shirt and safety gear must be worn before entering field. Changing on field results in 2-run penalty)</p>
+                    </div>
+
+                    <div class="rule-item">
+                        <strong>१८. Additional Rules</strong>
+                        <p>बाकीचे नियम मैदानावर सांगण्यात येतील। (Additional rules will be announced on the ground)</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer>
+            <p><strong>🏏 Placit Possa Trophy 2026</strong></p>
+            <p>Beach Cricket Tournament</p>
+            <p>Organized by Brilliant Boys, Uttan devtalav</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© 2026 All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>

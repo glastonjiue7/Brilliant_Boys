@@ -1,0 +1,19 @@
+{
+  "name": "bbc-cricket-tournament-2026",
+  "version": "1.0.0",
+  "description": "BBC Cricket Tournament 2026 - Registration Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "deploy": "vercel"
+  },
+  "keywords": [
+    "cricket",
+    "tournament",
+    "registration",
+    "2026"
+  ],
+  "author": "BBC Cricket Committee",
+  "license": "MIT",
+  "private": true
+}

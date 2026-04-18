@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -445,32 +446,447 @@
                 transform: scale(1);
             }
         }
+
+        /* Year Tabs Styles */
+        .year-tabs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: linear-gradient(135deg, #0a3d5c 0%, #1e5a8e 100%);
+            border-radius: 10px;
+        }
+
+        .year-tab-button {
+            padding: 12px 20px;
+            border: none;
+            background: white;
+            color: #0a3d5c;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .year-tab-button:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .year-tab-button.active {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .year-schedule {
+            display: none;
+            animation: fadeInSchedule 0.4s ease-in;
+        }
+
+        .year-schedule.active {
+            display: block;
+        }
+
+        @keyframes fadeInSchedule {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Group Tabs */
+        .group-tabs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 8px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f0f4f8;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .group-tab-button {
+            padding: 12px 15px;
+            border: 2px solid #0a3d5c;
+            background: white;
+            color: #0a3d5c;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9em;
+            line-height: 1.3;
+        }
+
+        .group-tab-button:hover {
+            background: #0a3d5c;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .group-tab-button.active {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border-color: #ff6b35;
+        }
+
+        .group-content {
+            display: none;
+        }
+
+        .group-content.active {
+            display: block;
+            animation: fadeInSchedule 0.3s ease-in;
+        }
+
+        /* Bracket Container */
+        .bracket-container {
+            position: relative;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow-x: auto;
+        }
+
+        .bracket-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .bracket-matches {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .finals-layout {
+            justify-content: center;
+        }
+
+        .round {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+        }
+
+        .round-title {
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #0a3d5c;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f0f4f8;
+            border-radius: 8px;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .match-box {
+            background: white;
+            border: 2px solid #0a3d5c;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .match-box:hover {
+            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.2);
+            border-color: #ff6b35;
+            transform: translateY(-3px);
+        }
+
+        .match-box.final {
+            background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
+            border: 2px solid #ff6b35;
+        }
+
+        .match-header {
+            text-align: center;
+            font-weight: 700;
+            color: #0a3d5c;
+            font-size: 1em;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f4f8;
+        }
+
+        .team-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            color: #0a3d5c;
+            font-weight: 600;
+        }
+
+        .team-logo {
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #f0f4f8;
+            border-radius: 6px;
+        }
+
+        .team-name {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0.95em;
+        }
+
+        .vs-divider {
+            text-align: center;
+            color: #999;
+            font-size: 0.85em;
+            font-weight: 700;
+            padding: 5px 0;
+            margin: 5px 0;
+        }
+
+        .match-time {
+            text-align: center;
+            color: #ff6b35;
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #f0f4f8;
+        }
+
+        .group-badge {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .group-header {
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #0a3d5c 0%, #1e5a8e 100%);
+            border-radius: 10px;
+            border-bottom: 3px solid #ff6b35;
+        }
+
+        @media (max-width: 768px) {
+            .bracket-matches {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .round {
+                min-width: auto;
+                max-width: 100%;
+            }
+
+            .year-tabs {
+                grid-template-columns: 1fr;
+            }
+
+            .group-tabs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .match-box {
+                padding: 12px;
+                border-radius: 8px;
+            }
+
+            .team-item {
+                font-size: 0.9em;
+            }
+
+            .match-header {
+                font-size: 0.95em;
+            }
+
+            .group-header {
+                font-size: 1.4em;
+                padding: 15px;
+            }
+
+            .bracket-container {
+                padding: 15px;
+            }
+        }
+
+
+        /* Schedule Navigation Grid */
+        .schedule-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 0;
+        }
+
+        .schedule-nav-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #0a3d5c 0%, #1e5a8e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .schedule-nav-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(255, 107, 53, 0.3);
+            border-color: #ff6b35;
+            background: linear-gradient(135deg, #1e5a8e 0%, #0a3d5c 100%);
+        }
+
+        .nav-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .nav-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .nav-desc {
+            font-size: 0.9em;
+            text-align: center;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .schedule-nav-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .schedule-nav-card {
+                padding: 20px 15px;
+            }
+
+            .nav-icon {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+            }
+
+            .nav-title {
+                font-size: 1.1em;
+            }
+
+            .nav-desc {
+                font-size: 0.85em;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
-            <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; align-items: center; justify-items: center; gap: 20px; min-height: 220px;">
+            <div
+                style="display: grid; grid-template-columns: 1fr 2fr 1fr; align-items: center; justify-items: center; gap: 20px; min-height: 220px;">
+
                 <!-- Left Logo: Placit Possa Trophy -->
                 <div style="text-align: center;">
-                    <img src="images/image1.png" alt="Placit Possa Trophy" style="height: 220px; width: auto; background: transparent; padding: 10px; border-radius: 10px;">
+                    <img src="Data/BBC Placit Possa Trophy  season 32-02.png" alt="Placit Possa Trophy"
+                        style="height: 120px; width: 300px; background: #fff; padding: 10px; border-radius: 10px; margin-bottom: 15px;">
+
+                    <img src="images/image1.png" alt="Brilliant Boys"
+                        style="height: 140px; width: auto; background: #fff; padding: 10px; border-radius: 10px;">
                 </div>
 
                 <!-- Center Text -->
                 <div style="text-align: center;">
-                    <p style="color: white; font-size: 1.3em; font-weight: 600; margin-bottom: 10px;">Brilliant Boys Presents</p>
-                    <h1 style="margin: 10px 0; font-size: 2.8em; line-height: 1.2;">🏏 Placit Possa Trophy 2026</h1>
-                    <p style="color: white; font-size: 1.1em; font-weight: 500; margin-top: 10px;">Rainy Season Beach Cricket Tournament - Season 32</p>
+                    <p style="color: white; font-size: 1.3em; font-weight: 600; margin-bottom: 10px;">
+                        Brilliant Boys Presents
+                    </p>
+                    <h1 style="margin: 10px 0; font-size: 2.8em; line-height: 1.2;">
+                        🏏 Placit Possa Trophy 2026
+                    </h1>
+                    <p style="color: white; font-size: 1.1em; font-weight: 500; margin-top: 10px;">
+                        Rainy Season Beach Cricket Tournament - Season 32
+                    </p>
                 </div>
+
             </div>
         </header>
 
         <main>
+            <!-- Tournament Resources Section -->
+            <div class="section">
+                <h2>Tournament Resources</h2>
+                <div class="schedule-nav-grid">
+                    <a href="2026-schedule.html" class="schedule-nav-card">
+                        <div class="nav-icon">📅</div>
+                        <div class="nav-title">2026 Schedule</div>
+                        <div class="nav-desc">Detailed tournament bracket & match schedule</div>
+                    </a>
+                    <a href="2025-summary.html" class="schedule-nav-card">
+                        <div class="nav-icon">🏆</div>
+                        <div class="nav-title">2025 Summary</div>
+                        <div class="nav-desc">Tournament results & highlights</div>
+                    </a>
+                    <a href="2024-summary.html" class="schedule-nav-card">
+                        <div class="nav-icon">⭐</div>
+                        <div class="nav-title">2024 Summary</div>
+                        <div class="nav-desc">Tournament results & highlights</div>
+                    </a>
+                    <a href="2023-summary.html" class="schedule-nav-card">
+                        <div class="nav-icon">🎯</div>
+                        <div class="nav-title">2023 Summary</div>
+                        <div class="nav-desc">Tournament results & highlights</div>
+                    </a>
+                </div>
+            </div>
+
             <!-- Tournament Details Section -->
             <div class="section">
                 <h2>Tournament Details</h2>
                 <div style="text-align: center; margin-bottom: 30px;">
-                    <img src="images/tournament-details.jpeg" alt="Tournament Details" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                    <img src="images/tournament-details.jpeg" alt="Tournament Details"
+                        style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
                 </div>
                 <div class="details-grid">
                     <div class="detail-card">
@@ -496,7 +912,8 @@
             <div class="section">
                 <h2>Tournament Venue - Uttan Beach</h2>
                 <div style="text-align: center;">
-                    <img src="images/venue-photo.jpg" alt="Uttan Beach - Venue" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                    <img src="images/venue-photo.jpg" alt="Uttan Beach - Venue"
+                        style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
                 </div>
             </div>
 
@@ -504,7 +921,8 @@
             <div class="section">
                 <h2>Tournament Dates</h2>
                 <div style="text-align: center;">
-                    <div style="background: linear-gradient(135deg, #0a3d5c 0%, #1e5a8e 100%); color: white; padding: 40px; border-radius: 10px; font-size: 1.5em; font-weight: 700;">
+                    <div
+                        style="background: linear-gradient(135deg, #0a3d5c 0%, #1e5a8e 100%); color: white; padding: 40px; border-radius: 10px; font-size: 1.5em; font-weight: 700;">
                         6, 7, 8, 9 June 2026
                     </div>
                 </div>
@@ -514,7 +932,8 @@
             <div class="section">
                 <h2>Prize Money</h2>
                 <div style="text-align: center; margin-bottom: 30px;">
-                    <img src="images/prize-display.jpg" alt="Trophy Display" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                    <img src="images/prize-display.jpg" alt="Trophy Display"
+                        style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
                 </div>
                 <div class="prizes-container">
                     <div class="prize-card">
@@ -557,13 +976,15 @@
             <!-- Special Feature -->
             <div class="feature-section">
                 <h3>🌟 Special Feature This Year!</h3>
-                <p style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #ff6b35; margin-bottom: 15px; font-weight: 600;">
+                <p
+                    style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #ff6b35; margin-bottom: 15px; font-weight: 600;">
                     <strong>जर सामना बरोबरीत सुटला, तर सुपर ओव्हर खेळवला जाईल।</strong><br>
                     (If a match ends in a tie, a super over will be played)
                 </p>
                 <p>या वर्षी खास उत्तन बंदरांवर प्रथमच 3 सुपर ओव्हर सामने!</p>
                 <p style="margin-top: 15px; font-size: 1em;">
-                    टॉप ३ संघ ३ सुपर ओव्हर सामने खेळतील, त्यातून १ संघ अंतिम फेरीसाठी पात्र ठरेल आणि उर्वरित २ संघ नियमित उपांत्य फेरीचा सामना खेळतील.
+                    टॉप ३ संघ ३ सुपर ओव्हर सामने खेळतील, त्यातून १ संघ अंतिम फेरीसाठी पात्र ठरेल आणि उर्वरित २ संघ
+                    नियमित उपांत्य फेरीचा सामना खेळतील.
                 </p>
             </div>
 
@@ -578,15 +999,20 @@
             <div class="registration-cta">
                 <p><strong>Tournament Details</strong></p>
                 <p style="font-size: 1.05em;">Get live tournament updates and view the latest scores!</p>
-                <a href="https://chshare.link/tournament/rhirSv" class="cta-button" target="_blank">📊 View Tournament Score</a>
+                <a href="https://chshare.link/tournament/rhirSv" class="cta-button" target="_blank">📊 View Tournament
+                    Score</a>
             </div>
 
             <!-- Live Score & Updates QR Code Section -->
-            <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffe8b6 100%); padding: 30px; border-radius: 10px; border: 3px solid #ff6b35; margin-bottom: 30px; text-align: center;">
-                <h3 style="color: #ff6b35; margin-bottom: 20px; font-size: 1.5em;">📱 Live Score & Tournament Updates</h3>
-                <p style="color: #333; font-size: 1.05em; margin-bottom: 20px; font-weight: 600;">Scan the QR Code below for live score updates and tournament details</p>
+            <div
+                style="background: linear-gradient(135deg, #fff3cd 0%, #ffe8b6 100%); padding: 30px; border-radius: 10px; border: 3px solid #ff6b35; margin-bottom: 30px; text-align: center;">
+                <h3 style="color: #ff6b35; margin-bottom: 20px; font-size: 1.5em;">📱 Live Score & Tournament Updates
+                </h3>
+                <p style="color: #333; font-size: 1.05em; margin-bottom: 20px; font-weight: 600;">Scan the QR Code below
+                    for live score updates and tournament details</p>
                 <div style="max-width: 300px; margin: 0 auto;">
-                    <img src="images/qr-code.jpeg" alt="Live Score QR Code" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                    <img src="images/qr-code.jpeg" alt="Live Score QR Code"
+                        style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
                 </div>
             </div>
 
@@ -619,15 +1045,18 @@
                 <p>📸 <strong>Follow us for Latest Updates, Photos, Videos & Reels</strong></p>
                 <p class="instagram-handle">@DEVTALAO_BOYS</p>
                 <div style="margin: 20px 0; text-align: center;">
-                    <img src="images/image39.jpeg" alt="Instagram QR Code" style="max-width: 300px; height: auto; border-radius: 10px;">
+                    <img src="images/image39.jpeg" alt="Instagram QR Code"
+                        style="max-width: 300px; height: auto; border-radius: 10px;">
                 </div>
                 <p style="font-size: 0.95em; color: #999; margin-top: 15px;">
-                    Scan the QR code or follow @DEVTALAO_BOYS for tournament news, match updates, and behind-the-scenes content
+                    Scan the QR code or follow @DEVTALAO_BOYS for tournament news, match updates, and behind-the-scenes
+                    content
                 </p>
             </div>
 
             <!-- Tournament Updates Link -->
-            <div style="background: #f0f4f8; padding: 25px; border-radius: 10px; text-align: center; margin-bottom: 30px;">
+            <div
+                style="background: #f0f4f8; padding: 25px; border-radius: 10px; text-align: center; margin-bottom: 30px;">
                 <p style="color: #666; margin-bottom: 15px;">
                     <strong>For Tournament Updates and Live Score</strong>
                 </p>
@@ -640,113 +1069,138 @@
                     border-radius: 8px;
                     font-weight: 600;
                     transition: background 0.3s;
-                " target="_blank" onmouseover="this.style.background='#1e5a8e'" onmouseout="this.style.background='#0a3d5c'">
+                " target="_blank" onmouseover="this.style.background='#1e5a8e'"
+                    onmouseout="this.style.background='#0a3d5c'">
                     🔗 Click here or Scan QR Code
                 </a>
             </div>
 
-            <!-- Tournament Rules Section -->
+            <!-- Tournament Schedule Tabs Section -->
             <div class="section">
-                <h2>स्पर्धेचे नियम (Tournament Rules)</h2>
+                <h2>Tournament Schedules</h2>
 
-                <div class="rules-intro">
-                    <p><strong>कृपया सर्व नियम व अटी लक्षात घ्या आणि सहमती व्यक्त करा।</strong></p>
-                    <p><em>(Please carefully read all rules and conditions below and give your consent. Failure to comply with these rules may result in disqualification.)</em></p>
+                <!-- Year Navigation Tabs -->
+                <div class="year-tabs">
+                    <button class="year-tab-button active" onclick="showYear('2026')">2026 Schedule</button>
+                    <button class="year-tab-button" onclick="showYear('2025')">2025 Schedule</button>
+                    <button class="year-tab-button" onclick="showYear('2024')">2024 Schedule</button>
+                    <button class="year-tab-button" onclick="showYear('2023')">2023 Schedule</button>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
-                    <div class="rule-item">
-                        <strong>१. Team Participation</strong>
-                        <p>२४ संघांना संधी देण्यात येईल। (24 teams will be given the opportunity to participate)</p>
+                <!-- 2026 Schedule -->
+                <div id="schedule-2026" class="year-schedule active">
+                    <!-- Group Navigation Tabs -->
+                    <div class="group-tabs">
+                        <button class="group-tab-button active" onclick="showGroup(event, 'group-a-2026')">Group A<br>6
+                            June</button>
+                        <button class="group-tab-button" onclick="showGroup(event, 'group-b-2026')">Group B<br>7
+                            June</button>
+                        <button class="group-tab-button" onclick="showGroup(event, 'group-c-2026')">Group C<br>8
+                            June</button>
+                        <button class="group-tab-button" onclick="showGroup(event, 'finals-2026')">Semis & Finals<br>9
+                            June</button>
                     </div>
 
-                    <div class="rule-item">
-                        <strong>२. Tie-Breaking Rule</strong>
-                        <p>जर सामना बरोबरीत सुटला, तर सुपर ओव्हर खेळवला जाईल। (If a match ends in a tie, a super over will be played)</p>
+                    <!-- GROUP A 2026 -->
+                    <div id="group-a-2026" class="group-content active">
+                        <div class="group-header">GROUP A - 6 JUNE 2027</div>
+                        <div class="bracket-container">
+                            <strong>४. Field Placement</strong>
+                            <p>२ षटके सर्कलमध्ये खेळविण्यात येतील। (2 overs will be played in the circle)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>५. Match Duration</strong>
+                            <p>५ षटकांसाठी २५ मिनिटांचा अवधी दिला जाईल. जर ४ ओव्हर २० मिनिटांच्या आत पूर्ण झाली नाही तर
+                                शेवटच्या ओव्हरमध्ये एक फिल्डर एक्स्ट्रा सर्कलच्या आत ठेवावा लागेल। (5 overs will be
+                                given 25 minutes duration. If 4 overs are not completed within 20 minutes, one fielder
+                                must be placed inside the circle in the last over)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>६. Weather & Ground Conditions</strong>
+                            <p>समुद्राचे पाणी अथवा इतर कारणामुळे सामना रद्द करणे हे पंच आणि कमिटीवर अवलंबून असेल।
+                                (Cancellation of matches due to sea water or other reasons will be decided by the umpire
+                                and committee)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>७. Coin Toss Decision</strong>
+                            <p>नाणेफेकीसाठी येताना आपला निर्णय अगोदर ठरवून येणे. अन्यथा २ धावांची पेनल्टी लागेल। (Decide
+                                your choice before the coin toss. Failure to do so will result in 2-run penalty)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>८. Original Team Players</strong>
+                            <p>ओरिजिनल संघ - खेळाडू ज्या संघाचा असेल त्यास त्याच संघात खेळविले जाईल। (Players must play
+                                for their original team)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>९. Batsman Dismissal</strong>
+                            <p>फलंदाज झेलबाद झाल्यानंतर नवीन फलंदाज स्ट्राइकवर असेल। (New batsman will be on strike
+                                after a batsman gets out)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>१०. Decision Review</strong>
+                            <p>अटीतटीच्या वेळी निर्णय चुकिचा असल्यास पंचांना तो दुरुस्त करण्यासाठी मांगे (Reverse
+                                Decision) घेता येईल। (Umpire can reverse decisions if found incorrect during critical
+                                moments)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>११. Field Entry/Exit Rules</strong>
+                            <p>सामना चालू असताना पंचाच्या संमतीशिवाय कुठल्याही खेळाडूने मैदानात उतरू नये किंवा बाहेर जाऊ
+                                नये. अन्यथा समोरच्या संघाला २ धावा बोनस देण्यात येतील। (No player can enter or leave the
+                                field without umpire permission. Violation results in 2-run bonus for opposing team)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>१२. Behavioral Conduct & Ban</strong>
+                            <p>एखाद्या खेळाडू किंवा संघाने मोठा वाद घातला तर त्या खेळाडू किंवा संघाला या स्पर्धेमध्ये ५
+                                वर्ष खेळण्यास बंदी असेल। (Any serious dispute will result in a 5-year ban from this
+                                tournament)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>१३. Uniform Requirements</strong>
+                            <p>सामान्यांमध्ये खेळण्यास एकसमान टीशर्ट घालणे आवश्यक आहे. अन्यथा २ धावांची पेनल्टी लागेल।
+                                (Uniform T-shirts are mandatory. Non-compliance results in 2-run penalty)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>१४. No Ball Rule</strong>
+                            <p>नो बॉल नंतर फ्री हिट असेल। (Free hit will be given after a no ball)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>१५. Intoxication Policy</strong>
+                            <p>मद्यपान करून खेळाडुला खेळण्यास मनाई आहे। (Playing under the influence of alcohol is
+                                strictly prohibited)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>१६. Injury Liability</strong>
+                            <p>खेळत असताना एखाद्या खेळाडुला दुखापत (Accident) झाल्यास कमिटी जबाबदार नसेल। (Committee is
+                                not responsible for any injuries during the game)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>१७. Safety Equipment</strong>
+                            <p>टी-शर्ट आणि सेफ्टी गार्ड मैदानात प्रवेश करण्यापूर्वीच घालावे; मैदानामध्ये बदल केल्यास २
+                                धावांची दंडात्मक शिक्षा दिली जाईल। (T-shirt and safety gear must be worn before entering
+                                field. Changing on field results in 2-run penalty)</p>
+                        </div>
+
+                        <div class="rule-item">
+                            <strong>१८. Additional Rules</strong>
+                            <p>बाकीचे नियम मैदानावर सांगण्यात येतील। (Additional rules will be announced on the ground)
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="rule-item">
-                        <strong>३. Punctuality & Match Timing</strong>
-                        <p>सर्व संघांनी वेळेवर हजर रहावे. उशिरा येणाऱ्या संघास कमी षटकांचा सामना खेळावा लागेल. त्याबद्दल निर्णय कमिटी घेईल. स्पर्धेत बदल करणे कमिटीवर अवलंबून आहे। (All teams must arrive on time. Late teams will play reduced overs. Committee will make final decisions on match changes)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>४. Field Placement</strong>
-                        <p>२ षटके सर्कलमध्ये खेळविण्यात येतील। (2 overs will be played in the circle)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>५. Match Duration</strong>
-                        <p>५ षटकांसाठी २५ मिनिटांचा अवधी दिला जाईल. जर ४ ओव्हर २० मिनिटांच्या आत पूर्ण झाली नाही तर शेवटच्या ओव्हरमध्ये एक फिल्डर एक्स्ट्रा सर्कलच्या आत ठेवावा लागेल। (5 overs will be given 25 minutes duration. If 4 overs are not completed within 20 minutes, one fielder must be placed inside the circle in the last over)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>६. Weather & Ground Conditions</strong>
-                        <p>समुद्राचे पाणी अथवा इतर कारणामुळे सामना रद्द करणे हे पंच आणि कमिटीवर अवलंबून असेल। (Cancellation of matches due to sea water or other reasons will be decided by the umpire and committee)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>७. Coin Toss Decision</strong>
-                        <p>नाणेफेकीसाठी येताना आपला निर्णय अगोदर ठरवून येणे. अन्यथा २ धावांची पेनल्टी लागेल। (Decide your choice before the coin toss. Failure to do so will result in 2-run penalty)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>८. Original Team Players</strong>
-                        <p>ओरिजिनल संघ - खेळाडू ज्या संघाचा असेल त्यास त्याच संघात खेळविले जाईल। (Players must play for their original team)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>९. Batsman Dismissal</strong>
-                        <p>फलंदाज झेलबाद झाल्यानंतर नवीन फलंदाज स्ट्राइकवर असेल। (New batsman will be on strike after a batsman gets out)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>१०. Decision Review</strong>
-                        <p>अटीतटीच्या वेळी निर्णय चुकिचा असल्यास पंचांना तो दुरुस्त करण्यासाठी मांगे (Reverse Decision) घेता येईल। (Umpire can reverse decisions if found incorrect during critical moments)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>११. Field Entry/Exit Rules</strong>
-                        <p>सामना चालू असताना पंचाच्या संमतीशिवाय कुठल्याही खेळाडूने मैदानात उतरू नये किंवा बाहेर जाऊ नये. अन्यथा समोरच्या संघाला २ धावा बोनस देण्यात येतील। (No player can enter or leave the field without umpire permission. Violation results in 2-run bonus for opposing team)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>१२. Behavioral Conduct & Ban</strong>
-                        <p>एखाद्या खेळाडू किंवा संघाने मोठा वाद घातला तर त्या खेळाडू किंवा संघाला या स्पर्धेमध्ये ५ वर्ष खेळण्यास बंदी असेल। (Any serious dispute will result in a 5-year ban from this tournament)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>१३. Uniform Requirements</strong>
-                        <p>सामान्यांमध्ये खेळण्यास एकसमान टीशर्ट घालणे आवश्यक आहे. अन्यथा २ धावांची पेनल्टी लागेल। (Uniform T-shirts are mandatory. Non-compliance results in 2-run penalty)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>१४. No Ball Rule</strong>
-                        <p>नो बॉल नंतर फ्री हिट असेल। (Free hit will be given after a no ball)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>१५. Intoxication Policy</strong>
-                        <p>मद्यपान करून खेळाडुला खेळण्यास मनाई आहे। (Playing under the influence of alcohol is strictly prohibited)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>१६. Injury Liability</strong>
-                        <p>खेळत असताना एखाद्या खेळाडुला दुखापत (Accident) झाल्यास कमिटी जबाबदार नसेल। (Committee is not responsible for any injuries during the game)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>१७. Safety Equipment</strong>
-                        <p>टी-शर्ट आणि सेफ्टी गार्ड मैदानात प्रवेश करण्यापूर्वीच घालावे; मैदानामध्ये बदल केल्यास २ धावांची दंडात्मक शिक्षा दिली जाईल। (T-shirt and safety gear must be worn before entering field. Changing on field results in 2-run penalty)</p>
-                    </div>
-
-                    <div class="rule-item">
-                        <strong>१८. Additional Rules</strong>
-                        <p>बाकीचे नियम मैदानावर सांगण्यात येतील। (Additional rules will be announced on the ground)</p>
-                    </div>
                 </div>
-
-            </div>
 
         </main>
 
@@ -757,5 +1211,80 @@
             <p style="margin-top: 15px; font-size: 0.9em;">© 2026 All Rights Reserved</p>
         </footer>
     </div>
+    <script>
+        function showYear(year) {
+            // Hide all year schedules
+            const schedules = document.querySelectorAll('.year-schedule');
+            schedules.forEach(schedule => {
+                schedule.classList.remove('active');
+            });
+
+            // Remove active class from all year buttons
+            const yearButtons = document.querySelectorAll('.year-tab-button');
+            yearButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected year schedule
+            const selectedSchedule = document.getElementById('schedule-' + year);
+            if (selectedSchedule) {
+                selectedSchedule.classList.add('active');
+            }
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Reset group tabs to first tab
+            const firstGroup = selectedSchedule.querySelector('.group-content');
+            if (firstGroup) {
+                const groupId = firstGroup.id;
+                showGroup(null, groupId);
+            }
+        }
+
+        function showGroup(evt, groupId) {
+            // Hide all group contents
+            const contents = document.querySelectorAll('.group-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all group buttons
+            const buttons = document.querySelectorAll('.group-tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected group content
+            const selectedContent = document.getElementById(groupId);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+
+            // Add active class to clicked button
+            if (evt) {
+                evt.currentTarget.classList.add('active');
+            } else {
+                // First tab activation
+                const parentTabs = document.querySelectorAll('.group-tabs');
+                if (parentTabs.length > 0) {
+                    const firstButton = parentTabs[parentTabs.length - 1].querySelector('.group-tab-button');
+                    if (firstButton) {
+                        firstButton.classList.add('active');
+                    }
+                }
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set first year as active
+            const firstYearBtn = document.querySelector('.year-tab-button');
+            if (firstYearBtn) {
+                firstYearBtn.click();
+            }
+        });
+    </script>
 </body>
+
 </html>
